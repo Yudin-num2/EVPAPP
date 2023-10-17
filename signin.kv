@@ -1,0 +1,95 @@
+<AuthorizationPage>:
+     id: main_win
+     orientation: 'vertical'
+     spacing: 10
+     padding: .1, .1
+     space_x: self.size[0]/3
+     canvas.before:
+          Color:
+               rgba: (1,1,1,1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+     Image:
+          source: 'Images/Logo.png'
+          size_hint_x: .9
+          size_hint_y: .9
+          pos_hint: {'center_x': .5, 'center_y': .3}
+     BoxLayout:
+          size_hint_y: None
+          height:50
+          canvas.before:
+               Color:
+                    rgba: (0,.8,.8,1)
+               Rectangle:
+                    size: self.size
+                    pos:  self.pos
+          Label:
+               text: "Авторизация пользователя"
+               bold: True
+               size_hint_x: .1
+               font_size: 40
+
+     BoxLayout:
+          orientation: 'vertical'
+          padding: main_win.space_x, 10
+          spacing: 20
+          BoxLayout:
+               orientation: 'vertical'
+               spacing: 10
+               size_hint_y: .30
+               size_hint_x: 1
+               height: 100
+               resize: True
+               Label:
+                    id: info
+                    text: " "
+                    markup: True
+                    size_hint_y: None
+                    height: 10
+               TextInput:
+                    id: username_field
+                    hint_text: "Логин" 
+                    multiline: False
+                    focus: True
+                    on_text_validate: pwd_field.focus= True
+               TextInput:
+                    id: pwd_field
+                    hint_text: "Пароль"
+                    multiline: False
+                    password: True
+                    on_text_validate: root.validate_user()
+          Label:
+               id: sp
+               size_hint_y: None
+               height: 10
+          Button:
+               text: "Войти"
+               size_hint_y: .2
+               size_hint_x: .90
+               font_size: 25
+               height: 20
+               background_color: (0,.8,.8,1)
+               background_normal: ''
+               on_release: root.validate_user()
+               on_press: root.current = 'main_page'
+          Label:
+               id: sp2
+
+
+<MainPage>
+     name: 'main_page'
+     orientation: 'vertical'
+     spacing: 10
+     space_x: self.size[0]/3
+     canvas.before:
+          Color:
+               rgba: (1,1,1,1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+
+
+
+
+
