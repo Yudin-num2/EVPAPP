@@ -71,9 +71,11 @@
                size_hint_x: .90
                font_size: 25
                height: 20
-               background_color: (0,.8,.8,1)
-               background_normal: ''
+               background_normal: 'Images/Button/BtOff1.png'
                on_release: root.validate_user()
+               canvas.before:
+                    Color:
+                         rgba: 1, 1, 1, 1
           Label:
                id: sp2
 
@@ -88,6 +90,13 @@
           Rectangle:
                size: self.size
                pos:  self.pos
+     
+     Image:
+          source: 'Images/Logo.png'
+          size_hint_x: .9
+          size_hint_y: .9
+          pos_hint: {'center_x': .5, 'center_y': .3}
+
      BoxLayout:
           size_hint_y: None
           height: 50
@@ -98,19 +107,27 @@
                     size: self.size
                     pos:  self.pos
           Label:
-               text: root.get_user(id.username_field)
+               text: "Выбери действие"
                bold: True
                size_hint_x: .1
                font_size: 40
-     FloatLayout:
-          Button:
-               text: "Гнезда"
-               pos_x: 5
-               size: 40, 120
-               font_size: 25
-               background_color: (0,.8,.8,1)
-
                
+     StackLayout:
+          padding: 20
+          Button:
+               text: 'Гнёзда'
+               font_size: 25
+               height: 70
+               size_hint_x: .2
+               size_hint_y: .15
+               orientation: 'tb-rl'
+               background_normal: 'Images/Button/BtOn.png'
+               canvas.before:
+                    Color:
+                         rgba: 1, 1, 1, 1
+          
+
+
      
 
 

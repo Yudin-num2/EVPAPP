@@ -1,15 +1,19 @@
 import psycopg2
 
 
-
-conn = psycopg2.connect(dbname='users', user='nonanon', 
+try:
+    conn = psycopg2.connect(dbname='users', user='nonanon', 
                         password='admin', host='localhost')
+except Exception as e:
+    print(e)
+
 
 def check_auth(login):
     try:
         with conn.cursor() as cursor:
-            cursor.execute(f'''SELECT password FROM public.users_auth WHERE login = '{login}'
-                           ''')
+            request = '''SELECT password FROM public.users_auth WHERE login = '%s'
+                           '''
+            cursor.execute(request, login)
             result = cursor.fetchone()
             if result:
                 return True
@@ -21,8 +25,9 @@ def check_auth(login):
 def get_user(login):
     try:
         with conn.cursor() as cursor:
-            cursor.execute(f'''SELECT name, surname FROM public.users_auth WHERE login = '{login}'
-                           ''')
+            request = '''SELECT name, surname FROM public.users_auth WHERE login = '%s'
+                           '''
+            cursor.execute(request, login)
             credentials = cursor.fetchone()
             return credentials
     except Exception as e:
