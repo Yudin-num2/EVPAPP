@@ -8,13 +8,13 @@ except Exception as e:
     print(e)
 
 
-def check_auth(login):
+def check_auth(log, passw):
     try:
         with conn.cursor() as cursor:
-            request = '''SELECT password FROM public.users_auth WHERE login = '%s'
-                           '''
-            cursor.execute(request, login)
+            query = '''SELECT * FROM public.users_auth WHERE login = %s AND password = %s'''
+            cursor.execute(query, (log, passw,))
             result = cursor.fetchone()
+            print(result)
             if result:
                 return True
             else:
@@ -25,13 +25,12 @@ def check_auth(login):
 def get_user(login):
     try:
         with conn.cursor() as cursor:
-            request = '''SELECT name, surname FROM public.users_auth WHERE login = '%s'
-                           '''
-            cursor.execute(request, login)
+            query = '''SELECT name, surname FROM public.users_auth WHERE login = %s'''
+            cursor.execute(query, (login,))
             credentials = cursor.fetchone()
             return credentials
     except Exception as e:
-        return e
+        print(e)
 
 
     #TODO bcrypt

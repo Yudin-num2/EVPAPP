@@ -1,6 +1,6 @@
 
 
-<AuthorizationPage>:
+<AuthorizationPage>
      id: main_win
      orientation: 'vertical'
      spacing: 10
@@ -68,14 +68,13 @@
           Button:
                text: "Войти"
                size_hint_y: .2
-               size_hint_x: .90
+               size_hint_x: .9
                font_size: 25
                height: 20
                background_normal: 'Images/Button/BtOff1.png'
-               on_release: root.validate_user()
-               canvas.before:
-                    Color:
-                         rgba: 1, 1, 1, 1
+               on_release: 
+                    root.validate_user()
+                    root.manager.transition.direction = 'left'
           Label:
                id: sp2
 
@@ -114,6 +113,7 @@
                
      StackLayout:
           padding: 20
+          spacing: 20
           Button:
                text: 'Гнёзда'
                font_size: 25
@@ -122,13 +122,148 @@
                size_hint_y: .15
                orientation: 'tb-rl'
                background_normal: 'Images/Button/BtOn.png'
-               canvas.before:
-                    Color:
-                         rgba: 1, 1, 1, 1
+               on_release: 
+                    root.manager.current = 'mold_sockets'
+                    root.manager.transition.direction = 'left'
+               
+          Button:
+               text: 'Заявки'
+               font_size: 25
+               height: 70
+               size_hint_x: .2
+               size_hint_y: .15
+               orientation: 'tb-rl'
+               background_normal: 'Images/Button/BtOn.png'
+               on_release: 
+                    root.manager.current = 'application'
+                    root.manager.transition.direction = 'left'           
+                    
           
+<MoldSockets>
+     name: 'mold_sockets'
+     orientation: 'vertical'
+     spacing: 10
+     canvas.before:
+          Color:
+               rgba: (1,1,1,1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+     
+     Image:
+          source: 'Images/Logo.png'
+          size_hint_x: .9
+          size_hint_y: .9
+          pos_hint: {'center_x': .5, 'center_y': .3}
+     
+     Button:
+          text: ''
+          height: 50
+          size_hint_x: .2
+          size_hint_y: .15
+          background_normal: 'Images/Button/Back_button.jpg'
+          on_release: 
+               root.manager.current = 'main_page'
+               root.manager.transition.direction = 'right' 
 
+     BoxLayout:
+          size_hint_y: None
+          height: 50
+          canvas.before:
+               Color:
+                    rgba: (0,.8,.8,1)
+               Rectangle:
+                    size: self.size
+                    pos:  self.pos
+          Label:
+               text: "Выбери комплекс"
+               bold: True
+               size_hint_x: .1
+               font_size: 40
+
+     GridLayout:
+          cols: 3
+          padding: 15
+          spacing: 15
+          row_default_height: 100
+          row_force_default: True
+          pos_hint: {'center_x': .5, 'center_y': .3}
+
+          Button:
+               text: 'Telerobot 1'
+               font_size: 25
+               background_normal: 'Images/Button/BtOn.png'
+               
+          Button:
+               text: 'Telerobot 2'
+               font_size: 25
+               background_normal: 'Images/Button/BtOn.png'
+          
+          Button:
+               text: 'Telerobot 3'
+               font_size: 25
+               background_normal: 'Images/Button/BtOn.png'
+          
+          Button:
+               text: 'Telerobot 4'
+               font_size: 25
+               background_normal: 'Images/Button/BtOn.png'
+          
+          Button:
+               text: 'Telerobot 5'
+               font_size: 25
+               background_normal: 'Images/Button/BtOn.png'
+          
+          Button:
+               text: 'Telerobot 6'
+               font_size: 25
+               background_normal: 'Images/Button/BtOn.png'               
+
+
+<Application>
+     name: 'application'
+     orientation: 'vertical'
+     spacing: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+     BoxLayout:
+          size_hint_y: None
+          height: 50
+          canvas.before:
+               Color:
+                    rgba: (0,.8,.8,1)
+               Rectangle:
+                    size: self.size
+                    pos:  self.pos
+          Label:
+               id: application_label
+               text: ' '
+               bold: True
+               size_hint_x: .1
+               font_size: 40
+          Button:
+               text: 'Назад'
+               font_size: 25
+               height: 70
+               size_hint_x: .2
+               size_hint_y: .15
+               pos_hint: {'center_x': .9, 'center_y': .1}
+               background_normal: 'Images/Button/BtOff1.png'
+               on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'main_page'
 
      
+
+
+
+
+
+
 
 
 
