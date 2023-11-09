@@ -155,13 +155,14 @@
           size_hint_x: .9
           size_hint_y: .9
           pos_hint: {'center_x': .5, 'center_y': .3}
-     
+
      Button:
-          text: ''
+          text: 'Назад'
           height: 50
-          size_hint_x: .2
-          size_hint_y: .15
-          background_normal: 'Images/Button/Back_button.jpg'
+          font_size: 25
+          size_hint: .2, .1
+          pos_hint: {'center_x': .875, 'center_y': .125}
+          background_normal: 'Images/Button/BtOn.png'
           on_release: 
                root.manager.current = 'main_page'
                root.manager.transition.direction = 'right' 
@@ -180,6 +181,8 @@
                bold: True
                size_hint_x: .1
                font_size: 40
+               pos_hint: {'center_x': .5,}
+
 
      GridLayout:
           cols: 3
@@ -193,6 +196,9 @@
                text: 'Telerobot 1'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'
+               on_release: 
+                    root.manager.current: 'socketsT1'
+                    root.manager.transition.direction = 'right' 
                
           Button:
                text: 'Telerobot 2'
@@ -216,6 +222,11 @@
           
           Button:
                text: 'Telerobot 6'
+               font_size: 25
+               background_normal: 'Images/Button/BtOn.png'
+
+          Button:
+               text: 'Telerobot 7'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'               
 
@@ -259,8 +270,198 @@
 
      
 
+<SocketsT1>
+     name: 'socketsT1'
+     size_hint: .5, .5
+     pos_hint: {'center_x': .5, 'center_y': .5} 
+     do_default_tab: False
+  
+     TabbedPanelItem: 
+          text: 'Lid'
+          FloatLayout:
+               Spinner:
+                    ids: spinner1
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner2
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner3
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner4
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner5
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner6
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner7
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner8
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner9
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner10
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner11
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner12
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner13
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner14
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner15
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner16
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner17
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+               Spinner:
+                    ids: spinner18
+                    size_hint: None, None
+                    size: 100, 44
+                    pos_hint: {'center': (.5, .5)}
+                    text: ''
+                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
+                    on_text:
+                         background_color: background_color
+     
+     TabbedPanelItem: 
+          text: 'Frame'
+          
+     
+     TabbedPanelItem: 
+          text: 'Cutter'
+          
 
-
+<SocketsT2>
+     name: 'socketsT2'
+<SocketsT3>
+     name: 'socketsT3'
+<SocketsT4>
+     name: 'socketsT4'
+<SocketsT5>
+     name: 'socketsT5'
+<SocketsT6>
+     name: 'socketsT6'
+<SocketsT7>
+     name: 'socketsT7'
 
 
 

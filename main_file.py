@@ -41,6 +41,35 @@ class Application(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
 
+class SocketsT1(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+class SocketsT2(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+class SocketsT3(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+class SocketsT4(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+class SocketsT5(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+class SocketsT6(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+class SocketsT7(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+
 
 class EuroplastApp(App):
 
