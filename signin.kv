@@ -1,6 +1,7 @@
 
 
 <AuthorizationPage>
+     name: 'auth_page'
      id: main_win
      orientation: 'vertical'
      spacing: 10
@@ -72,7 +73,7 @@
                font_size: 25
                height: 20
                background_normal: 'Images/Button/BtOff1.png'
-               on_release: 
+               on_press: 
                     root.validate_user()
                     root.manager.transition.direction = 'left'
           Label:
@@ -122,7 +123,7 @@
                size_hint_y: .15
                orientation: 'tb-rl'
                background_normal: 'Images/Button/BtOn.png'
-               on_release: 
+               on_press: 
                     root.manager.current = 'mold_sockets'
                     root.manager.transition.direction = 'left'
                
@@ -134,7 +135,7 @@
                size_hint_y: .15
                orientation: 'tb-rl'
                background_normal: 'Images/Button/BtOn.png'
-               on_release: 
+               on_press: 
                     root.manager.current = 'application'
                     root.manager.transition.direction = 'left'           
                     
@@ -149,7 +150,6 @@
           Rectangle:
                size: self.size
                pos:  self.pos
-     
      Image:
           source: 'Images/Logo.png'
           size_hint_x: .9
@@ -163,7 +163,7 @@
           size_hint: .2, .1
           pos_hint: {'center_x': .875, 'center_y': .125}
           background_normal: 'Images/Button/BtOn.png'
-          on_release: 
+          on_press: 
                root.manager.current = 'main_page'
                root.manager.transition.direction = 'right' 
 
@@ -196,39 +196,56 @@
                text: 'Telerobot 1'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'
-               on_release: 
-                    root.manager.current: 'socketsT1'
-                    root.manager.transition.direction = 'right' 
+               on_press:
+                    root.manager.current = 's1'
+                    root.manager.transition.direction = 'left'
                
           Button:
                text: 'Telerobot 2'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'
+               on_press:
+                    root.manager.current = 's2'
           
           Button:
                text: 'Telerobot 3'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'
+               on_press:
+                    root.manager.transition.direction = 'left' 
+                    root.manager.current = 's3'
           
           Button:
                text: 'Telerobot 4'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'
+               on_press:
+                    root.manager.transition.direction = 'left' 
+                    root.manager.current = 's4'
           
           Button:
                text: 'Telerobot 5'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'
+               on_press:
+                    root.manager.transition.direction = 'left' 
+                    root.manager.current = 's5'
           
           Button:
                text: 'Telerobot 6'
                font_size: 25
                background_normal: 'Images/Button/BtOn.png'
+               on_press:
+                    root.manager.transition.direction = 'left' 
+                    root.manager.current = 's6'
 
           Button:
                text: 'Telerobot 7'
                font_size: 25
-               background_normal: 'Images/Button/BtOn.png'               
+               background_normal: 'Images/Button/BtOn.png'
+               on_press:
+                    root.manager.transition.direction = 'left' 
+                    root.manager.current = 's7'
 
 
 <Application>
@@ -241,6 +258,16 @@
           Rectangle:
                size: self.size
                pos:  self.pos
+     Button:
+          text: 'Назад'
+          height: 50
+          font_size: 25
+          size_hint: .2, .1
+          pos_hint: {'center_x': .875, 'center_y': .125}
+          background_normal: 'Images/Button/BtOn.png'
+          on_press: 
+               root.manager.current = 'main_page'
+               root.manager.transition.direction = 'right' 
      BoxLayout:
           size_hint_y: None
           height: 50
@@ -256,212 +283,138 @@
                bold: True
                size_hint_x: .1
                font_size: 40
-          Button:
-               text: 'Назад'
-               font_size: 25
-               height: 70
-               size_hint_x: .2
-               size_hint_y: .15
-               pos_hint: {'center_x': .9, 'center_y': .1}
-               background_normal: 'Images/Button/BtOff1.png'
-               on_release:
-                    root.manager.transition.direction = 'right'
-                    root.manager.current = 'main_page'
-
+          
+<SocketsT1>:
+     name: 's1'
+     orientation: 'vertical'
+     spacing: 10
+     padding: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
      
-
-<SocketsT1>
-     name: 'socketsT1'
-     size_hint: .5, .5
-     pos_hint: {'center_x': .5, 'center_y': .5} 
-     do_default_tab: False
-  
-     TabbedPanelItem: 
-          text: 'Lid'
-          FloatLayout:
-               Spinner:
-                    ids: spinner1
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner2
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner3
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner4
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner5
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner6
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner7
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner8
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner9
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner10
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner11
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner12
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner13
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner14
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner15
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner16
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner17
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-               Spinner:
-                    ids: spinner18
-                    size_hint: None, None
-                    size: 100, 44
-                    pos_hint: {'center': (.5, .5)}
-                    text: ''
-                    values: 'причина 1', 'причина 2', 'причина 3', 'причина 4'
-                    on_text:
-                         background_color: background_color
-     
-     TabbedPanelItem: 
-          text: 'Frame'
+     TabbedPanel:
+          pos_hint: {'center_x': .5, 'center_y': .5}
+          do_default_tab: False
+          background_color : (0,.8,.8,1)
           
      
-     TabbedPanelItem: 
-          text: 'Cutter'
-          
+          TabbedPanelItem:
+               text: 'Lid'
+               GridLayout:
+                    cols: 4
+                    padding: 5
+                    spacing: 5
+                    Button:
+                         text:'1'
+                         background_normal: 'Images/Button/BtOn.png'
+                    
+                    Button:
+                         text:'2'
+                         background_normal: 'Images/Button/BtOn.png'
+                         
+                    Button:
+                         text:'3'
+                         background_normal: 'Images/Button/BtOn.png'
+                    Button:
+                         text:'4'
+                         background_normal: 'Images/Button/BtOn.png'
+                    Button:
+                         text:'5'
+                         background_normal: 'Images/Button/BtOn.png'
+                    Button:
+                         text:'6'
+                         background_normal: 'Images/Button/BtOn.png'
+                    Button:
+                         text:'7'
+                         background_normal: 'Images/Button/BtOn.png'
+                    
+                    
+     
+          TabbedPanelItem:
+               text: 'Frame'
+               BoxLayout:
+                    Label:
+                         text: 'Second tab content area'
+                    Button:
+                         text: 'Button that does nothing'
+     
+          TabbedPanelItem:
+               text: 'Cutter'
+               RstDocument:
+                    text:
+                         '\\n'.join(("Hello world", "-----------",
+                         "You are in the third tab."))
 
+     
 <SocketsT2>
-     name: 'socketsT2'
-<SocketsT3>
-     name: 'socketsT3'
-<SocketsT4>
-     name: 'socketsT4'
+     name: 's2'
+     orientation: 'vertical'
+     spacing: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+
+<SocketsT3>:
+     name: 's3'
+     orientation: 'vertical'
+     spacing: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+
+<SocketsT4>:
+     name: 's4'
+     orientation: 'vertical'
+     spacing: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+
 <SocketsT5>
-     name: 'socketsT5'
+     name: 's5'
+     orientation: 'vertical'
+     spacing: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+
 <SocketsT6>
-     name: 'socketsT6'
+     name: 's6'
+     orientation: 'vertical'
+     spacing: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
+
 <SocketsT7>
-     name: 'socketsT7'
+     name: 's7'
+     orientation: 'vertical'
+     spacing: 10
+     canvas:
+          Color:
+               rgba: (1, 1, 1, 1)
+          Rectangle:
+               size: self.size
+               pos:  self.pos
 
 
 
