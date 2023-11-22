@@ -63,18 +63,24 @@ class SocketsT1(Screen):
                 background_normal='Images/Button/BtOn.png'
                 )
             layout.add_widget(button)
-    def widg(self, ids):
+    def create_widget(self, instance):
+        self.remove_widget(instance)
         layout = BoxLayout(
-            sise_hint=(.5,.5),
+            size_hint=(.5,.5),
             pos_hint={'center_x': .5, 'center_y': .5}
         )    
         layout.canvas.add(Color(1., 1., 0))
         layout.canvas.add(Rectangle(size=layout.size))
         button_1 = Button(
             text='🟨 Облой',
-            on_press= self.ids.background_color
-# ################################################################################################################TODO
+            on_press= self.set_yellow()
         )
+
+    def set_yellow(self, instance):
+        original_button = self.children[-2].children[0]
+        print(self.children)
+        original_button.backgroun_color = (.98, 1, 0, 1)
+
 
 
 class SocketsT2(Screen):
