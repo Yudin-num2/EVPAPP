@@ -10,6 +10,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Rectangle, Color
 from database import check_auth, get_user
 from kivy.uix.tabbedpanel import TabbedPanel
+from kivy.uix.popup import Popup
 
 
 Builder.load_file('signin.kv')
@@ -35,14 +36,9 @@ class MainPage(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
 
-
 class MoldSockets(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
-    
-    def print_testt(self):
-        print('Button is pressed')
-
     
 class Application(Screen):
     def __init__(self, **kw):
@@ -51,63 +47,168 @@ class Application(Screen):
 class SocketsT1(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
+        self.button = kw
+    def build_(self):
+        layout = BoxLayout(orientation='vertical')
 
-        layout = GridLayout(
-                spacing=10,
-                padding=10,
-                cols=4)
-        for i in range(48):
-            button = Button(
-                text=f'{i+1}',
-                font_size=15,
-                background_normal='Images/Button/BtOn.png'
-                )
-            layout.add_widget(button)
-    def create_widget(self, instance):
-        self.remove_widget(instance)
-        layout = BoxLayout(
-            size_hint=(.5,.5),
-            pos_hint={'center_x': .5, 'center_y': .5}
-        )    
-        layout.canvas.add(Color(1., 1., 0))
-        layout.canvas.add(Rectangle(size=layout.size))
-        button_1 = Button(
-            text='🟨 Облой',
-            on_press= self.set_yellow()
-        )
+        button1 = Button(text='Button 1', on_release=self.open_popup)
+        button2 = Button(text='Button 2', on_release=self.open_popup)
+        button3 = Button(text='Button 3', on_release=self.open_popup)
+        button4 = Button(text='Button 4', on_release=self.open_popup)
 
-    def set_yellow(self, instance):
-        original_button = self.children[-2].children[0]
-        print(self.children)
-        original_button.backgroun_color = (.98, 1, 0, 1)
+        layout.add_widget(button1)
+        layout.add_widget(button2)
+        layout.add_widget(button3)
+        layout.add_widget(button4)
 
+        return layout
 
+    def open_popup(self, widget):
+        popup = ColorPopup(widget)
+        popup.open()
 
 class SocketsT2(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
+    
+    def build_(self):
+        layout = BoxLayout(orientation='vertical')
+
+        button1 = Button(text='Button 1', on_release=self.open_popup)
+        button2 = Button(text='Button 2', on_release=self.open_popup)
+        button3 = Button(text='Button 3', on_release=self.open_popup)
+        button4 = Button(text='Button 4', on_release=self.open_popup)
+
+        layout.add_widget(button1)
+        layout.add_widget(button2)
+        layout.add_widget(button3)
+        layout.add_widget(button4)
+
+        return layout
+
+    def open_popup(self, widget):
+        popup = ColorPopup(widget)
+        popup.open()
 
 class SocketsT3(Screen):
+    
     def __init__(self, **kw):
         super().__init__(**kw)
+        self.button = kw
+    def build_(self):
+        layout = BoxLayout(orientation='vertical')
+
+        button1 = Button(text='Button 1', on_release=self.open_popup)
+        button2 = Button(text='Button 2', on_release=self.open_popup)
+        button3 = Button(text='Button 3', on_release=self.open_popup)
+        button4 = Button(text='Button 4', on_release=self.open_popup)
+
+        layout.add_widget(button1)
+        layout.add_widget(button2)
+        layout.add_widget(button3)
+        layout.add_widget(button4)
+
+        return layout
+
+    def open_popup(self, widget):
+        popup = ColorPopup(widget)
+        popup.open()
 
 class SocketsT4(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
+        self.button = kw
+    def build_(self):
+        layout = BoxLayout(orientation='vertical')
+
+        button1 = Button(text='Button 1', on_release=self.open_popup)
+        button2 = Button(text='Button 2', on_release=self.open_popup)
+        button3 = Button(text='Button 3', on_release=self.open_popup)
+        button4 = Button(text='Button 4', on_release=self.open_popup)
+
+        layout.add_widget(button1)
+        layout.add_widget(button2)
+        layout.add_widget(button3)
+        layout.add_widget(button4)
+
+        return layout
+
+    def open_popup(self, widget):
+        popup = ColorPopup(widget)
+        popup.open()
 
 class SocketsT5(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
+        self.button = kw
+    def build_(self):
+        layout = BoxLayout(orientation='vertical')
+
+        button1 = Button(text='Button 1', on_release=self.open_popup)
+        button2 = Button(text='Button 2', on_release=self.open_popup)
+        button3 = Button(text='Button 3', on_release=self.open_popup)
+        button4 = Button(text='Button 4', on_release=self.open_popup)
+
+        layout.add_widget(button1)
+        layout.add_widget(button2)
+        layout.add_widget(button3)
+        layout.add_widget(button4)
+
+        return layout
+
+    def open_popup(self, widget):
+        popup = ColorPopup(widget)
+        popup.open()
 
 class SocketsT6(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
+        self.button = kw
+    def build_(self):
+        layout = BoxLayout(orientation='vertical')
+
+        button1 = Button(text='Button 1', on_release=self.open_popup)
+        button2 = Button(text='Button 2', on_release=self.open_popup)
+        button3 = Button(text='Button 3', on_release=self.open_popup)
+        button4 = Button(text='Button 4', on_release=self.open_popup)
+
+        layout.add_widget(button1)
+        layout.add_widget(button2)
+        layout.add_widget(button3)
+        layout.add_widget(button4)
+
+        return layout
+
+    def open_popup(self, widget):
+        popup = ColorPopup(widget)
+        popup.open()
 
 class SocketsT7(Screen):
-    def __init__(self, **kw):
-        super().__init__(**kw)
+    pass
 
+class ColorPopup(Popup):
+    def __init__(self, button, **kwargs):
+        super().__init__(**kwargs)
+        self.button = button
 
+        layout = BoxLayout(orientation='vertical')
+        red_button = Button(text='Поломка', on_release=self.change_color)
+        blue_button = Button(text='Облой', on_release=self.change_color)
+        yellow_button = Button(text='Недолив', on_release=self.change_color)
+
+        layout.add_widget(red_button)
+        layout.add_widget(blue_button)
+        layout.add_widget(yellow_button)
+
+        self.content = layout
+
+    def change_color(self, instance):
+        button_text = instance.text.lower()
+        self.button.background_color = (1, 0, 0, 1) if button_text == 'red' else \
+                                        (0, 0, 1, 1) if button_text == 'blue' else \
+                                        (1, 1, 0, 1) if button_text == 'yellow' else \
+                                        (1, 1, 1, 1)
+        self.dismiss()
 
 class EuroplastApp(App):
 
