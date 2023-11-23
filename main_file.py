@@ -204,9 +204,9 @@ class ColorPopup(Popup):
 
     def change_color(self, instance):
         button_text = instance.text.lower()
-        self.button.background_color = (1, 0, 0, 1) if button_text == 'red' else \
-                                        (0, 0, 1, 1) if button_text == 'blue' else \
-                                        (1, 1, 0, 1) if button_text == 'yellow' else \
+        self.button.background_color = (1, 0, 0, 1) if button_text == 'Поломка' else \
+                                        (0, 0, 1, 1) if button_text == 'Облой' else \
+                                        (1, 1, 0, 1) if button_text == 'Недолив' else \
                                         (1, 1, 1, 1)
         self.dismiss()
 
