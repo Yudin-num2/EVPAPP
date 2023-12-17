@@ -300,9 +300,9 @@
           Button:
                text: 'Назад'
                bold: True
-               size_hint: .2, .2
+               size_hint: .15, .05
                spacing: 10
-               padding: 10
+               padding: 20
                background_normal: 'Images/Button/BtOn.png'
                on_press: 
                     root.manager.current = 'mold_sockets'
@@ -312,6 +312,7 @@
           pos_hint: {'center_x': .5, 'center_y': .5}
           do_default_tab: False
           background_color : (0,.8,.8,1)
+          title: 'Выбери причину заглушения'
           
      
           TabbedPanelItem:
@@ -324,7 +325,6 @@
                          text:'1'
                          on_release: root.open_popup(self)
                          
-
                     Button:
                          text:'2'
                          on_release: root.open_popup(self)
@@ -921,7 +921,21 @@
           Rectangle:
                size: self.size
                pos:  self.pos
-     
+
+     AnchorLayout:
+          anchor_x:'right'
+          anchor_y:'top'
+          Button:
+               text: 'Назад'
+               bold: True
+               size_hint: .15, .05
+               spacing: 10
+               padding: 20
+               background_normal: 'Images/Button/BtOn.png'
+               on_press: 
+                    root.manager.current = 'mold_sockets'
+                    root.manager.transition.direction = 'right'
+
      TabbedPanel:
           pos_hint: {'center_x': .5, 'center_y': .5}
           do_default_tab: False
@@ -1533,6 +1547,20 @@
           Rectangle:
                size: self.size
                pos:  self.pos
+     
+     AnchorLayout:
+          anchor_x:'right'
+          anchor_y:'top'
+          Button:
+               text: 'Назад'
+               bold: True
+               size_hint: .15, .05
+               spacing: 10
+               padding: 20
+               background_normal: 'Images/Button/BtOn.png'
+               on_press: 
+                    root.manager.current = 'mold_sockets'
+                    root.manager.transition.direction = 'right'
      
      TabbedPanel:
           pos_hint: {'center_x': .5, 'center_y': .5}
@@ -2337,6 +2365,21 @@
                size: self.size
                pos:  self.pos
      
+
+     AnchorLayout:
+          anchor_x:'right'
+          anchor_y:'top'
+          Button:
+               text: 'Назад'
+               bold: True
+               size_hint: .15, .05
+               spacing: 10
+               padding: 20
+               background_normal: 'Images/Button/BtOn.png'
+               on_press: 
+                    root.manager.current = 'mold_sockets'
+                    root.manager.transition.direction = 'right'
+
      TabbedPanel:
           pos_hint: {'center_x': .5, 'center_y': .5}
           do_default_tab: False
@@ -2949,6 +2992,21 @@
                size: self.size
                pos:  self.pos
      
+
+     AnchorLayout:
+          anchor_x:'right'
+          anchor_y:'top'
+          Button:
+               text: 'Назад'
+               bold: True
+               size_hint: .15, .05
+               spacing: 10
+               padding: 20
+               background_normal: 'Images/Button/BtOn.png'
+               on_press: 
+                    root.manager.current = 'mold_sockets'
+                    root.manager.transition.direction = 'right'
+
      TabbedPanel:
           pos_hint: {'center_x': .5, 'center_y': .5}
           do_default_tab: False
@@ -3560,6 +3618,20 @@
                size: self.size
                pos:  self.pos
      
+     AnchorLayout:
+          anchor_x:'right'
+          anchor_y:'top'
+          Button:
+               text: 'Назад'
+               bold: True
+               size_hint: .15, .05
+               spacing: 10
+               padding: 20
+               background_normal: 'Images/Button/BtOn.png'
+               on_press: 
+                    root.manager.current = 'mold_sockets'
+                    root.manager.transition.direction = 'right'
+
      TabbedPanel:
           pos_hint: {'center_x': .5, 'center_y': .5}
           do_default_tab: False
@@ -4174,7 +4246,9 @@
           Rectangle:
                size: self.size
                pos:  self.pos
-     BoxLayout:
+     AnchorLayout:
+          anchor_x: 'center'
+          anchor_y: 'center'
           Label:
                text: 'Скоро появится'
                size_hint: .5, .5
